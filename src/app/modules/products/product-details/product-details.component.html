@@ -1,0 +1,10 @@
+<div class="product-details">
+    <img [src]="product.image" alt="{{ product.name }}" />
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <p><strong>Price:</strong> {{ product.price }}$</p>
+    <div class="details-actions">
+        <button routerLink="/" class="back-btn">⬅ Back to Products</button>
+        <button class="add-to-cart-btn" (click)="addToCart(product)">Add to Cart 🛒</button>
+    </div>
+</div>

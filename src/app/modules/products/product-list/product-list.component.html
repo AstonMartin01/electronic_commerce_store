@@ -1,0 +1,46 @@
+<app-header 
+  (sort)="sortProducts($event)" 
+  (filter)="filterByPrice($event)">
+</app-header>
+
+<!-- Pagination Controls -->
+<div class="pagination-container">
+  <pagination-controls (pageChange)="page = $event" previousLabel="" nextLabel=""></pagination-controls>
+</div>
+
+<div class="product-container">
+  <div class="product-list">
+    <div *ngFor="let product of filteredProducts | paginate: { itemsPerPage: pageSize, currentPage: page }" class="product-card">
+      <a [routerLink]="['/product', product.id]">
+        <img [src]="product.image" alt="{{ product.name }}" />
+      </a>
+      <h3 [routerLink]="['/product', product.id]" class="product-name">
+        {{ product.name }}
+      </h3>    
+      <p>{{ product.description }}</p>
+      <p><strong>Price: {{ product.price }}$</strong></p>
+      <button (click)="addToCart(product)">Add to Cart 🛒</button> 
+    </div>
+  </div>
+  
+  <div class="cart-sidebar">
+    <button class="cart-view-btn" (click)="goToCart()">View Shopping Cart 🛒</button>
+    <ul *ngIf="cart.length > 0; else emptyCart">
+      <li *ngFor="let item of cart; let i = index">
+        {{ item.name }} 
+        <br>
+        {{ item.price }}$
+        <button class="remove-btn" (click)="removeFromCart(i)">✖</button>
+      </li>
+    </ul>
+
+    <ng-template #emptyCart>
+      <p class="empty-cart-message">Your cart is empty.</p>
+    </ng-template>
+  </div>
+</div>
+
+<!-- Pagination Controls -->
+<div class="pagination-container">
+  <pagination-controls (pageChange)="page = $event" previousLabel="" nextLabel=""></pagination-controls>
+</div>

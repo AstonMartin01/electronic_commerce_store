@@ -1,0 +1,24 @@
+<div class="checkout-container">
+    <h2>Checkout</h2>
+    <div *ngIf="cart.length > 0;">
+      <h3>Order Summary</h3>
+      <ul>
+        <li *ngFor="let item of cart">
+          {{ item.name }} - {{ item.price }}$
+        </li>
+      </ul>
+      <p><strong>Total: {{ totalPrice }}$</strong></p>
+      <button class="back-btn" (click)="goBackToProducts()">⬅ Back to Products</button>
+      <button class="checkout-btn" (click)="processPayment()">Proceed to Payment  👍</button>
+    </div>
+  
+    <!-- <ng-template #emptyCart>
+      <p>Your cart is empty.</p>
+    </ng-template> -->
+  
+    <div *ngIf="paymentSuccess" class="success-message">
+      <p>✅ Payment successful! Thank you for your purchase.</p>
+      <button class="back-btn" (click)="goBackToProducts()">⬅ Back to Products</button>
+    </div>
+ </div>
+  

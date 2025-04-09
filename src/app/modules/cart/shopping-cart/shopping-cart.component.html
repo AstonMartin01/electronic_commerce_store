@@ -1,0 +1,20 @@
+<div class="cart-container">
+    <h2>Shopping Cart 🛒</h2>
+    
+    <ul *ngIf="cart.length > 0; else emptyCart">
+      <li *ngFor="let item of cart; let i = index">
+        {{ item.name }} - {{ item.price }}$
+        <button class="remove-btn" (click)="removeFromCart(i)">✖</button>
+      </li>
+    </ul>
+  
+    <ng-template #emptyCart>
+      <p class="empty-cart-message">Your cart is empty.</p>
+    </ng-template>
+  
+    <div class="cart-actions">
+      <button class="back-btn" (click)="goBackToProducts()">⬅ Back to Products</button>
+      <button class="checkout-btn" (click)="checkout()">Checkout 👍</button>
+    </div>
+</div>
+  

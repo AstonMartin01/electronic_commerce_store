@@ -1,0 +1,25 @@
+<div class="operations-container">
+    <div>
+        <button (click)="sortProductsByName()" [class.active]="sortBy === 'name'">
+            Sort by Name <span *ngIf="sortOrderName === 'asc'">🔼</span><span *ngIf="sortOrderName === 'desc'">🔽</span>
+        </button>
+    
+        <button (click)="sortProductsByPrice()" [class.active]="sortBy === 'price'">
+            Sort by Price <span *ngIf="sortOrderPrice === 'asc'">🔼</span><span *ngIf="sortOrderPrice === 'desc'">🔽</span>
+        </button>
+
+        <div>
+            <label for="price">&nbsp; Filter by Price: </label>
+            <input 
+            id="price"
+            type="range" 
+            min="100" 
+            max="10000" 
+            step="50" 
+            [(ngModel)]="selectedPrice" 
+            (input)="filterByPrice($event)"
+            >
+            <span> {{ selectedPrice }}$</span>
+        </div>
+    </div>    
+</div>
