@@ -12,7 +12,7 @@ export class ProductListComponent implements OnInit {
   cart: any[] = [];
   filteredProducts: any[] = [];
   page: number = 1;
-  pageSize: number = 12;
+  pageSize: number = 15;
 
   constructor(
     private productService: ProductService,

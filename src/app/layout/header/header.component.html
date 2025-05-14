@@ -1,3 +1,37 @@
+<!-- header.component.html -->
+<div class="navbar navbar-design">
+  <div class="navbar-container">
+    <!-- <div class="logo">
+      <a href="/">E-commerce Store</a>
+    </div> -->
+    
+    <!-- Desktop Navbar -->
+    <nav class="nav-links desktop">
+      <ul>
+        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
+        <li><a routerLink="/cart" routerLinkActive="active">Cart</a></li>
+        <li><a routerLink="/checkout" routerLinkActive="active">Checkout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Hamburger Menu -->
+    <div class="hamburger-menu mobile" (click)="toggleMenu()">
+      <span class="bar">☰</span>
+    </div>
+
+    <!-- Mobile Navbar -->
+    <nav class="nav-links mobile" [class.show]="menuOpen">
+      <ul>
+        <li><a routerLink="/home" routerLinkActive="active" (click)="closeMenu()">Home</a></li>
+        <li><a routerLink="/products" routerLinkActive="active" (click)="closeMenu()">Products</a></li>
+        <li><a routerLink="/cart" routerLinkActive="active" (click)="closeMenu()">Cart</a></li>
+        <li><a routerLink="/checkout" routerLinkActive="active" (click)="closeMenu()">Checkout</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
 <div class="operations-container">
     <div>
         <button (click)="sortProductsByName()" [class.active]="sortBy === 'name'">

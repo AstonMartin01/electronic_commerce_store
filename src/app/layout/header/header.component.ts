@@ -15,6 +15,7 @@ export class HeaderComponent {
   sortNameOrder: 'asc' | 'desc' = 'asc';
   sortPriceOrder: 'asc' | 'desc' = 'asc'; // Separate toggle state for price sorting
   selectedPrice: number = 10000;
+  menuOpen: boolean = false;
 
   sortProductsByName() {
     this.sortBy = 'name';
@@ -31,5 +32,13 @@ export class HeaderComponent {
   filterByPrice(event: Event) {
     this.selectedPrice = Number((event.target as HTMLInputElement).value);
     this.filter.emit(this.selectedPrice);
+  }
+
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu(): void {
+    this.menuOpen = false;
   }
 }
