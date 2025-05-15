@@ -17,6 +17,7 @@ import { ShoppingCartComponent } from './modules/cart/shopping-cart/shopping-car
 import { CheckoutComponent } from './modules/checkout/checkout.component';
 import { GlobalFeedbacksComponent } from './modules/global-feedbacks/global-feedbacks.component';
 import { NewsletterComponent } from './modules/newsletter/newsletter.component';
+import { DeliveryComponent } from './modules/delivery/delivery.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NewsletterComponent } from './modules/newsletter/newsletter.component';
     ShoppingCartComponent,
     CheckoutComponent,
     GlobalFeedbacksComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    DeliveryComponent
   ],
   imports: [
     BrowserModule,

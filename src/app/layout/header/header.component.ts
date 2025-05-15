@@ -8,6 +8,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent {
   @Output() filter = new EventEmitter<number>();
   @Output() sort = new EventEmitter<{ type: 'name' | 'price', order: 'asc' | 'desc' }>();
+  @Output() search = new EventEmitter<string>(); // Optional: only if you want to emit
   sortBy: 'name' | 'price' | null = null;
   sortOrderName: 'asc' | 'desc' = 'asc';
   sortOrderPrice: 'asc' | 'desc' = 'asc';
@@ -16,6 +17,7 @@ export class HeaderComponent {
   sortPriceOrder: 'asc' | 'desc' = 'asc'; // Separate toggle state for price sorting
   selectedPrice: number = 10000;
   menuOpen: boolean = false;
+  searchQuery: string = '';
 
   sortProductsByName() {
     this.sortBy = 'name';
@@ -32,6 +34,11 @@ export class HeaderComponent {
   filterByPrice(event: Event) {
     this.selectedPrice = Number((event.target as HTMLInputElement).value);
     this.filter.emit(this.selectedPrice);
+  }
+
+  onSearch() {
+    this.search.emit(this.searchQuery); // Optional use of @Output
+    // Alternatively: Apply local filtering logic here
   }
 
   toggleMenu(): void {

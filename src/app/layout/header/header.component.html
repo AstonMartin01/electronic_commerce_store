@@ -8,10 +8,22 @@
     <!-- Desktop Navbar -->
     <nav class="nav-links desktop">
       <ul>
-        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
-        <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
+        <!-- <li><a routerLink="/home" routerLinkActive="active">Home</a></li> -->
+        <!-- <li><a routerLink="/products" routerLinkActive="active">Products</a></li> -->
+        <!-- <li><a routerLink="/cart" routerLinkActive="active">Cart</a></li> -->
+        <!-- <li><a routerLink="/checkout" routerLinkActive="active">Checkout</a></li> -->
+        <li><a routerLink="/" routerLinkActive="active">Account</a></li>
         <li><a routerLink="/cart" routerLinkActive="active">Cart</a></li>
-        <li><a routerLink="/checkout" routerLinkActive="active">Checkout</a></li>
+        <li><a routerLink="/" routerLinkActive="active">Delivery</a></li>
+        <li><a routerLink="/" routerLinkActive="active">Tracking</a></li>
+        <li><a routerLink="/" routerLinkActive="active">Discounts</a></li>
+        <li><a routerLink="/" routerLinkActive="active">Unsealed</a></li>
+        <li><a routerLink="/" routerLinkActive="active">Return</a></li>
+        <li><a routerLink="/" routerLinkActive="active">Service</a></li>
+        <li><a routerLink="/" routerLinkActive="active">Blog</a></li>
+        <li><a routerLink="/" routerLinkActive="active">FAQ</a></li>
+        <li><a routerLink="/" routerLinkActive="active">Support</a></li>
+        <li><a routerLink="/" routerLinkActive="active">Contact</a></li>
       </ul>
     </nav>
 
@@ -31,29 +43,59 @@
     </nav>
   </div>
 </div>
+<!-- 
+<div class="operations-container">
+  <div>
+      <button (click)="sortProductsByName()" [class.active]="sortBy === 'name'">
+        Sort by Name <span *ngIf="sortOrderName === 'asc'">🔼</span><span *ngIf="sortOrderName === 'desc'">🔽</span>
+      </button>
+  
+      <button (click)="sortProductsByPrice()" [class.active]="sortBy === 'price'">
+        Sort by Price <span *ngIf="sortOrderPrice === 'asc'">🔼</span><span *ngIf="sortOrderPrice === 'desc'">🔽</span>
+      </button>
+
+      <span>
+        <label for="price">&nbsp; Filter by Price: </label>
+        <input 
+        id="price"
+        type="range" 
+        min="100" 
+        max="10000" 
+        step="50" 
+        [(ngModel)]="selectedPrice" 
+        (input)="filterByPrice($event)"
+        >
+        <span> {{ selectedPrice }}$</span>
+      </span>
+  </div>    
+</div> -->
 
 <div class="operations-container">
-    <div>
-        <button (click)="sortProductsByName()" [class.active]="sortBy === 'name'">
-            Sort by Name <span *ngIf="sortOrderName === 'asc'">🔼</span><span *ngIf="sortOrderName === 'desc'">🔽</span>
-        </button>
-    
-        <button (click)="sortProductsByPrice()" [class.active]="sortBy === 'price'">
-            Sort by Price <span *ngIf="sortOrderPrice === 'asc'">🔼</span><span *ngIf="sortOrderPrice === 'desc'">🔽</span>
-        </button>
+  <div class="left-controls">
+    <div class="search-bar">
+      <input type="text" placeholder="Search products..." [(ngModel)]="searchQuery" (input)="onSearch()" />
+    </div>
 
-        <div>
-            <label for="price">&nbsp; Filter by Price: </label>
-            <input 
-            id="price"
-            type="range" 
-            min="100" 
-            max="10000" 
-            step="50" 
-            [(ngModel)]="selectedPrice" 
-            (input)="filterByPrice($event)"
-            >
-            <span> {{ selectedPrice }}$</span>
-        </div>
-    </div>    
+    <button (click)="sortProductsByName()" [class.active]="sortBy === 'name'">
+      Sort by Name <span *ngIf="sortOrderName === 'asc'">🔼</span><span *ngIf="sortOrderName === 'desc'">🔽</span>
+    </button>
+
+    <button (click)="sortProductsByPrice()" [class.active]="sortBy === 'price'">
+      Sort by Price <span *ngIf="sortOrderPrice === 'asc'">🔼</span><span *ngIf="sortOrderPrice === 'desc'">🔽</span>
+    </button>
+
+    <span>
+      <label for="price">&nbsp; Filter by Price: </label>
+      <input
+        id="price"
+        type="range"
+        min="100"
+        max="10000"
+        step="50"
+        [(ngModel)]="selectedPrice"
+        (input)="filterByPrice($event)"
+      >
+      <span>{{ selectedPrice }}$</span>
+    </span>
+  </div>
 </div>

@@ -41,3 +41,7 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+src/assets/delivery/cargus.png
+src/assets/delivery/fancourier.png
+src/assets/delivery/fedex.png
+src/assets/delivery/sameday.png
