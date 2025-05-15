@@ -1,0 +1,9 @@
+<div class="newsletter-container">
+  <h3 class="newsletter-heading">Newsletter Announcements</h3>
+  <form (ngSubmit)="subscribe()" #newsletterForm="ngForm" class="newsletter-form">
+    <input type="email" name="email" placeholder="Your Email" [(ngModel)]="email" required />
+    <input type="text" name="genre" placeholder="Preferred Music Genre" [(ngModel)]="genre" />
+    <input type="text" name="artist" placeholder="Preferred Artist Name" [(ngModel)]="artist" />
+    <button type="submit" [disabled]="!newsletterForm.valid">Subscribe</button>
+  </form>
+</div>

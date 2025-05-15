@@ -15,6 +15,8 @@ import { ProductDetailsComponent } from './modules/products/product-details/prod
 import { HttpClientModule } from '@angular/common/http';
 import { ShoppingCartComponent } from './modules/cart/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './modules/checkout/checkout.component';
+import { GlobalFeedbacksComponent } from './modules/global-feedbacks/global-feedbacks.component';
+import { NewsletterComponent } from './modules/newsletter/newsletter.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { CheckoutComponent } from './modules/checkout/checkout.component';
     FooterComponent,
     ProductDetailsComponent,
     ShoppingCartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    GlobalFeedbacksComponent,
+    NewsletterComponent
   ],
   imports: [
     BrowserModule,

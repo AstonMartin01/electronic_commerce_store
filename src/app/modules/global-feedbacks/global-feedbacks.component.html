@@ -1,0 +1,15 @@
+<div class="feedback-container">
+  <h3 class="feedback-heading">User Feedbacks</h3>
+
+  <form (ngSubmit)="submitFeedback($event)" #feedbackForm="ngForm">
+    <input type="text" name="name" placeholder="Your name" [(ngModel)]="name" required />
+    <textarea name="message" placeholder="Your message" [(ngModel)]="message" required></textarea>
+    <button type="submit" [disabled]="!feedbackForm.valid">Submit</button>
+  </form>
+
+  <div class="feedback-list" id="feedback-list">
+    <div *ngFor="let feedback of feedbacks" class="feedback-item">
+      {{ feedback.name }} - "{{ feedback.message }}"
+    </div>
+  </div>
+</div>
