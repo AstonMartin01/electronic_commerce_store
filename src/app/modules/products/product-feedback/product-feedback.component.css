@@ -1,0 +1,80 @@
+.feedback-container {
+  max-width: 30rem;
+  padding: 1rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.product-feedback-heading {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+.feedback-list {
+  margin-bottom: 2rem;
+}
+
+.feedback-item {
+  border-bottom: 1px solid #ccc;
+  padding: 0.75rem 0;
+}
+
+.feedback-name {
+  font-weight: 600;
+  margin: 0;
+}
+
+.feedback-message {
+  margin: 0.25rem 0 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 0.5rem;
+}
+
+.feedback-form button {
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.feedback-form button:hover {
+  background-color: #0b5ed7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .feedback-container {
+    padding: 0.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .feedback-form button {
+    font-size: 1rem;
+  }
+}

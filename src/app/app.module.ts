@@ -20,6 +20,7 @@ import { NewsletterComponent } from './modules/newsletter/newsletter.component';
 import { DeliveryComponent } from './modules/delivery/delivery.component';
 import { FaqComponent } from './modules/faq/faq.component';
 import { ContactComponent } from './modules/contact/contact.component';
+import { ProductFeedbackComponent } from './modules/products/product-feedback/product-feedback.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ContactComponent } from './modules/contact/contact.component';
     NewsletterComponent,
     DeliveryComponent,
     FaqComponent,
-    ContactComponent
+    ContactComponent,
+    ProductFeedbackComponent
   ],
   imports: [
     BrowserModule,

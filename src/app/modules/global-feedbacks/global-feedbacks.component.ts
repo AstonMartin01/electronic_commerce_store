@@ -16,16 +16,16 @@ export class GlobalFeedbacksComponent {
     { name: 'Vali', message: "Prompt customer support!" }
   ];
 
-  submitFeedback(event: Event): void {
-    event.preventDefault();
-
+  onSubmit(): void {
     if (this.name.trim() && this.message.trim()) {
       this.feedbacks.push({ name: this.name.trim(), message: this.message.trim() });
-      this.name = '';
-      this.message = '';
+      this.clearForm();
     }
 
-    // Optionally clear form
+    this.clearForm();
+  }
+
+  clearForm() {
     this.name = '';
     this.message = '';
   }
