@@ -9,11 +9,11 @@ export class GlobalFeedbacksComponent {
   name = '';
   message = '';
   feedbacks: { name: string, message: string } [] = [
-    { name: 'Victor', message: 'Amazing drinks and cozy vibe!' },
-    { name: 'Mihai', message: 'Great food, service and location!' },
-    { name: 'Andrei', message: 'Salutari din Ro, vom reveni cu placere!' },
-    { name: 'Alexander', message: 'Best meatballs ever!' },
-    { name: 'Vali', message: "Sar'na pt masa!" }
+    { name: 'Victor', message: 'The most durable hardware and devices!' },
+    { name: 'Mihai', message: 'Prompt and professional delivery!' },
+    { name: 'Andrei', message: 'Foarte multumit!' },
+    { name: 'Alexander', message: 'The top services on the market' },
+    { name: 'Vali', message: "Prompt customer support!" }
   ];
 
   submitFeedback(event: Event): void {
