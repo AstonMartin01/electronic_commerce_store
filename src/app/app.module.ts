@@ -21,6 +21,7 @@ import { DeliveryComponent } from './modules/delivery/delivery.component';
 import { FaqComponent } from './modules/faq/faq.component';
 import { ContactComponent } from './modules/contact/contact.component';
 import { ProductFeedbackComponent } from './modules/products/product-feedback/product-feedback.component';
+import { ProductSliderComponent } from './modules/products/product-slider/product-slider.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ProductFeedbackComponent } from './modules/products/product-feedback/pr
     DeliveryComponent,
     FaqComponent,
     ContactComponent,
-    ProductFeedbackComponent
+    ProductFeedbackComponent,
+    ProductSliderComponent
   ],
   imports: [
     BrowserModule,
