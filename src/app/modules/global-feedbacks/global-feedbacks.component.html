@@ -2,7 +2,7 @@
   <h3 class="feedback-heading">User Feedbacks</h3>
 
   <form (ngSubmit)="onSubmit()" #feedbackForm="ngForm">
-    <input type="text" name="name" placeholder="Your name" [(ngModel)]="name" required />
+    <input type="text" name="name" placeholder="Your name" [(ngModel)]="clientName" required />
     <textarea name="message" placeholder="Your message" [(ngModel)]="message" required></textarea>
     <button type="submit" [disabled]="!feedbackForm.valid">Submit</button>
   </form>

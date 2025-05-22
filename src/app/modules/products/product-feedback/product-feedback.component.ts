@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { DataService, ProductFeedback } from 'src/app/core/services/data.service';
 
@@ -20,10 +21,46 @@ export class ProductFeedbackComponent {
   isLoading = true;
   error: string | null = null;
 
-  constructor(private dataService: DataService) {}
+  constructor(private http: HttpClient, private dataService: DataService) {}
   
   ngOnInit(): void {
-  this.dataService.getProductFeedbacks().subscribe({
+    this.getFeedbacks();
+  }
+
+  onSubmit(): void {
+    const feedback = {
+      clientName: this.clientName,
+      message: this.message,
+      rating: this.rating,
+      dateOfEvent: this.dateOfEvent
+    };
+
+    if (this.clientName.trim() && this.message.trim() && this.rating != 0 && this.dateOfEvent.trim()) {
+      // this.feedbacks.push({ clientName: this.clientName.trim(), message: this.message.trim(), rating: this.rating, dateOfEvent: this.dateOfEvent.trim() });
+      this.dataService.sendProductFeedback(feedback).subscribe({
+        next: (response) => {
+          console.log('Feedback saved:', response);
+          this.getFeedbacks();
+          alert('Successfully subscribed!');          
+        },
+        error: (error) => {
+          console.error('Error saving feedback:', error);
+          alert('Something went wrong. Please try again.');
+        }
+      });
+      this.clearForm();
+    }
+  }  
+
+  clearForm() {
+    this.clientName = '';
+    this.message = '';
+    this.rating = 1;      
+    this.dateOfEvent = '';
+  }
+
+  getFeedbacks() {
+    this.dataService.getProductFeedbacks().subscribe({
     next: (data) => {
       this.feedbacks = data;
       this.isLoading = false;
@@ -32,23 +69,5 @@ export class ProductFeedbackComponent {
       this.error = 'Failed to load feedbacks.';
       this.isLoading = false;
     }});
-  }
-
-  onSubmit(): void {
-    if (this.clientName.trim() && this.message.trim() && this.rating != 0 && this.dateOfEvent.trim()) {
-      this.feedbacks.push(
-        { clientName: this.clientName.trim(), message: this.message.trim(), rating: this.rating, dateOfEvent: this.dateOfEvent.trim() }
-      );
-      this.clearForm();
-    }
-
-    this.clearForm();
-  }  
-
-  clearForm() {
-    this.clientName = '';
-    this.message = '';
-    this.rating = 1;      
-    this.dateOfEvent = '';
   }
 }

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DataService, GlobalFeedback } from 'src/app/core/services/data.service';
 
@@ -7,7 +8,7 @@ import { DataService, GlobalFeedback } from 'src/app/core/services/data.service'
   styleUrls: ['./global-feedbacks.component.css']
 })
 export class GlobalFeedbacksComponent implements OnInit{
-  name = '';
+  clientName = '';
   message = '';
   // feedbacks: { clientName: string, message: string } [] = [
   //   { clientName: 'Victor', message: 'The most durable hardware and devices!' },
@@ -20,10 +21,38 @@ export class GlobalFeedbacksComponent implements OnInit{
   isLoading = true;
   error: string | null = null;
 
-  constructor(private dataService: DataService) {}
+  constructor(private http: HttpClient, private dataService: DataService) {}
 
   ngOnInit(): void {
-  this.dataService.getGlobalFeedbacks().subscribe({
+    this.getFeedbacks();
+  }
+
+  onSubmit(): void {
+    const feedback = {
+      clientName: this.clientName,
+      message: this.message
+    };
+
+    if (this.clientName.trim() && this.message.trim()) {
+      // this.feedbacks.push({ clientName: this.clientName.trim(), message: this.message.trim() });      
+      this.dataService.sendGlobalFeedback(feedback).subscribe({
+      
+        next: (response) => {
+          console.log('Feedback saved:', response);
+          this.getFeedbacks();
+          alert('Successfully subscribed!');          
+        },
+        error: (error) => {
+          console.error('Error saving feedback:', error);
+          alert('Something went wrong. Please try again.');
+        }
+      });
+      this.clearForm();
+    }
+  }
+
+  getFeedbacks() {
+    this.dataService.getGlobalFeedbacks().subscribe({
     next: (data) => {
       this.feedbacks = data;
       this.isLoading = false;
@@ -34,17 +63,8 @@ export class GlobalFeedbacksComponent implements OnInit{
     }});
   }
 
-  onSubmit(): void {
-    if (this.name.trim() && this.message.trim()) {
-      this.feedbacks.push({ clientName: this.name.trim(), message: this.message.trim() });
-      this.clearForm();
-    }
-
-    this.clearForm();
-  }
-
   clearForm() {
-    this.name = '';
+    this.clientName = '';
     this.message = '';
   }
 }

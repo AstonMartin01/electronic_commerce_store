@@ -25,8 +25,23 @@ export class DataService {
 
   getProducts(): Observable<any[]> {
     // const apiUrl = './assets/mock-products.json';  // Mock data location
-    const apiUrl = 'https://localhost:44352/ecommerce/products';  // Mock data location
+    const apiUrl = 'https://localhost:44352/ecommerce/products';
     return this.http.get<any[]>(apiUrl);
+  }
+
+  sendAnnouncement(announcement: Announcement): Observable<any> {
+    const apiUrl = 'https://localhost:44352/ecommerce/save-announcement';
+    return this.http.post(apiUrl, announcement);
+  }
+
+  sendGlobalFeedback(feedback: GlobalFeedback): Observable<any> {
+    const apiUrl = 'https://localhost:44352/ecommerce/save-global-feedback';
+    return this.http.post(apiUrl, feedback);
+  }
+
+  sendProductFeedback(feedback: ProductFeedback): Observable<any> {
+    const apiUrl = 'https://localhost:44352/ecommerce/save-product-feedback';
+    return this.http.post(apiUrl, feedback);
   }
 
   getProductById(id: number): Observable<any> {
