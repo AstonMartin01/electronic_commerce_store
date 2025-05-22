@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,18 @@ export class DataService {
   getAnnouncements(): Observable<Announcement[]> {
     const apiUrl = 'https://localhost:44352/ecommerce/announcements';
     return this.http.get<Announcement[]>(apiUrl);
+  }
+
+  getProducts(): Observable<any[]> {
+    // const apiUrl = './assets/mock-products.json';  // Mock data location
+    const apiUrl = 'https://localhost:44352/ecommerce/products';  // Mock data location
+    return this.http.get<any[]>(apiUrl);
+  }
+
+  getProductById(id: number): Observable<any> {
+    return this.getProducts().pipe(
+      map((products: any[]) => products.find(product => product.id === id))
+    );
   }
 }
 

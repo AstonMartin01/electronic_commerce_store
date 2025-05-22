@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../../core/services/product.service';
 import { CartService } from '../../../core/services/cart.service';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/core/services/data.service';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -15,7 +15,7 @@ export class ProductListComponent implements OnInit {
   pageSize: number = 15;
 
   constructor(
-    private productService: ProductService,
+    private productService: DataService,
     private cartService: CartService,
     private router: Router
   ) {}

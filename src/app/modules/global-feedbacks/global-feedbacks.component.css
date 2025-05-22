@@ -47,6 +47,9 @@ button {
 
 .feedback-item {
   padding: 0.25rem;
+}
+
+.feedback-font {
   font-style: italic;
 }
 

@@ -41,10 +41,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-src/assets/delivery/cargus.png
-src/assets/delivery/fancourier.png
-src/assets/delivery/fedex.png
-src/assets/delivery/sameday.png
 src/assets/promo/promo1-1.png
 src/assets/promo/promo1.png
 src/assets/promo/promo2-1.png
@@ -63,3 +59,7 @@ src/assets/promo/promo11.png
 src/assets/promo/promo12-1.png
 src/assets/promo/promo12.png
 src/assets/promo/promo13.png
+src/assets/delivery/delivery1.png
+src/assets/delivery/delivery2.png
+src/assets/delivery/delivery3.png
+src/assets/delivery/delivery4.png

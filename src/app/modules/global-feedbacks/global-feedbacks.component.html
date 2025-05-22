@@ -9,7 +9,7 @@
 
   <div class="feedback-list" id="feedback-list">
     <div *ngFor="let feedback of feedbacks" class="feedback-item">
-      {{ feedback.clientName }} - "{{ feedback.message }}"
+      {{ feedback.clientName }} - <span class="feedback-font"> "{{ feedback.message }}" </span> 
     </div>
   </div>
 
