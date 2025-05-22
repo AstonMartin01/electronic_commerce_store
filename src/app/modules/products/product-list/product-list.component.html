@@ -1,7 +1,11 @@
-<app-header 
+<app-header></app-header>
+
+<app-product-slider></app-product-slider>
+
+<app-data-display 
   (sort)="sortProducts($event)" 
   (filter)="filterByPrice($event)">
-</app-header>
+</app-data-display>
 
 <!-- Pagination Controls -->
 <div class="pagination-container">
@@ -45,10 +49,8 @@
   <pagination-controls (pageChange)="page = $event" previousLabel="" nextLabel=""></pagination-controls>
 </div>
 
-<div>
-  <app-newsletter class="newsletter"></app-newsletter>
-  <app-global-feedbacks class="global-feedbacks"></app-global-feedbacks>
-  <app-delivery></app-delivery>
-  <app-faq></app-faq>
-  <app-contact></app-contact>
-</div>
+<app-newsletter class="newsletter"></app-newsletter>
+<app-global-feedbacks class="global-feedbacks"></app-global-feedbacks>
+<app-delivery></app-delivery>
+<app-faq></app-faq>
+<app-footer></app-footer>

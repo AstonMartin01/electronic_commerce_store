@@ -9,7 +9,17 @@
 
   <div class="feedback-list" id="feedback-list">
     <div *ngFor="let feedback of feedbacks" class="feedback-item">
-      {{ feedback.name }} - "{{ feedback.message }}"
+      {{ feedback.clientName }} - "{{ feedback.message }}"
     </div>
   </div>
+
+  <!-- <div *ngIf="isLoading">Loading feedbacks...</div>
+  <div *ngIf="error">{{ error }}</div>
+
+  <div *ngIf="!isLoading && !error">
+    <div *ngFor="let feedback of feedbacks" class="feedback-card">
+      <h4>{{ feedback.name }}</h4>
+      <p>{{ feedback.message }}</p>
+    </div>
+  </div> -->
 </div>

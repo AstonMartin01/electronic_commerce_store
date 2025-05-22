@@ -2,16 +2,16 @@
   <h2 class="product-feedback-heading">Product Feedback</h2>
 
   <form (ngSubmit)="onSubmit()" class="feedback-form">
-    <input type="text" name="name" placeholder="Your Name" [(ngModel)]="name" required />
+    <input type="text" name="name" placeholder="Your Name" [(ngModel)]="clientName" required />
     <input type="text" name="message" placeholder="Your Message" [(ngModel)]="message" required />
     <input type="number" name="rating" placeholder="Your Rating (1-5)" [(ngModel)]="rating" required min="1" max="5"/>
-    <input type="date" name="date" placeholder="Your Date" [(ngModel)]="date" required />
+    <input type="date" name="date" placeholder="Your Date" [(ngModel)]="dateOfEvent" required />
     <button type="submit">Submit</button>
   </form> 
 
   <div class="feedback-list" id="feedback-list">
-    <div *ngFor="let feedback of feedbackList" class="feedback-item">
-      {{ feedback.name }} - "{{ feedback.message }} ({{ feedback.rating }}★)" - {{ feedback.date | date:'dd.MM.yyyy' }}
+    <div *ngFor="let feedback of feedbacks" class="feedback-item">
+      {{ feedback.clientName }} - "{{ feedback.message }} ({{ feedback.rating }}★)" - {{ feedback.dateOfEvent | date:'dd.MM.yyyy' }}
     </div>
   </div>
 </div>

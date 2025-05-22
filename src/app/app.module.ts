@@ -22,6 +22,8 @@ import { FaqComponent } from './modules/faq/faq.component';
 import { ContactComponent } from './modules/contact/contact.component';
 import { ProductFeedbackComponent } from './modules/products/product-feedback/product-feedback.component';
 import { ProductSliderComponent } from './modules/products/product-slider/product-slider.component';
+import { NavbarComponent } from './modules/navbar/navbar.component';
+import { DataDisplayComponent } from './modules/data-display/data-display.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { ProductSliderComponent } from './modules/products/product-slider/produc
     FaqComponent,
     ContactComponent,
     ProductFeedbackComponent,
-    ProductSliderComponent
+    ProductSliderComponent,
+    NavbarComponent,
+    DataDisplayComponent
   ],
   imports: [
     BrowserModule,
