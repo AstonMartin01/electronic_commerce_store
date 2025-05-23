@@ -20,13 +20,6 @@
     object-fit: contain;
 }
 
-.product-card img {
-    width: 5rem; /* Adjust image size */
-    height: auto; /* Maintain aspect ratio */
-    max-height: none; /* Remove max-height constraint */
-    object-fit: contain; /* Ensure the image scales properly */
-}
-
 .pagination-container {
     display: flex;
     justify-content: center; 

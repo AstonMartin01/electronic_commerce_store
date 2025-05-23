@@ -1,38 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../../../core/services/cart.service';
-import { Router } from '@angular/router';
 import { DataService } from 'src/app/core/services/data.service';
+
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  selector: 'app-manage-products',
+  templateUrl: './manage-products.component.html',
+  styleUrls: ['./manage-products.component.css']
 })
-export class ProductListComponent implements OnInit {
-  products: any[] = [];
-  cart: any[] = [];
+export class ManageProductsComponent implements OnInit {
+  editingProduct: any = null;
+  products: any[] = [];  
   filteredProducts: any[] = [];
-  page: number = 1;
-  pageSize: number = 15;
   searchQuery: string = '';
 
-  constructor(
-    private productService: DataService,
-    private cartService: CartService,
-    private router: Router
-  ) {}
+  constructor(private dataService: DataService) {}
 
-  ngOnInit() {
-    this.productService.getProducts().subscribe(data => {
-      this.products = data;
+  ngOnInit(): void {
+    this.dataService.getProducts().subscribe(products => {
+      this.products = products;
       this.filteredProducts = [...this.products];
-    });
-
-    this.cartService.cart$.subscribe(cart => {
-      this.cart = cart; // Syncs with the Shopping Cart service
     });
   }
 
-  sortProducts(event: { type: 'name' | 'price', order: 'asc' | 'desc' }) {
+  enableEdit(product: any) {
+    this.editingProduct = { ...product };
+  }
+
+  cancelEdit() {
+    this.editingProduct = null;
+  }
+
+  saveEdit() {
+    this.dataService.editProduct(this.editingProduct).subscribe(() => {
+      const index = this.filteredProducts.findIndex(p => p.id === this.editingProduct.id);
+      this.filteredProducts[index] = { ...this.editingProduct };
+      this.editingProduct = null;
+    });
+  }
+
+    sortProducts(event: { type: 'name' | 'price', order: 'asc' | 'desc' }) {
     const { type, order } = event;
 
     if (type === 'name') {
@@ -51,18 +56,6 @@ export class ProductListComponent implements OnInit {
 
   filterByPrice(maxPrice: number) {
     this.filteredProducts = this.products.filter(product => product.price <= maxPrice);
-  }
-
-  addToCart(product: any) {
-    this.cartService.addToCart(product);
-  }
-
-  removeFromCart(index: number) {
-    this.cartService.removeFromCart(index);
-  }
-
-  goToCart() {
-    this.router.navigate(['/cart']);
   }
 
   searchProducts(query: string): void {

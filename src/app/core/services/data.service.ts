@@ -49,6 +49,11 @@ export class DataService {
       map((products: any[]) => products.find(product => product.id === id))
     );
   }
+
+  editProduct(product: any): Observable<any> {
+    const apiUrl = 'https://localhost:44352/ecommerce/edit-product';
+    return this.http.put(apiUrl, product);
+  }
 }
 
 export interface GlobalFeedback {  

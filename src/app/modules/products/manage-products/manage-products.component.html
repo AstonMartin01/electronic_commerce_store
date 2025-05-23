@@ -1,0 +1,27 @@
+<app-data-display 
+  (sort)="sortProducts($event)" 
+  (filter)="filterByPrice($event)"
+  (search)="searchProducts($event)">
+</app-data-display>
+
+<h3 class="manage-products-heading">Products Management</h3>
+<div class="product-list">  
+  <div *ngFor="let product of filteredProducts" class="product-card">
+    <ng-container *ngIf="editingProduct?.id === product.id; else viewMode">
+      <input [(ngModel)]="editingProduct.name" placeholder="Name" />
+      <input [(ngModel)]="editingProduct.price" type="number" placeholder="Price" />
+      <input [(ngModel)]="editingProduct.imageLink" placeholder="Image Link" />
+      <textarea [(ngModel)]="editingProduct.description" placeholder="Description"></textarea>
+      <button (click)="saveEdit()">Save ✅</button>
+      <button (click)="cancelEdit()">Cancel ❌</button>
+    </ng-container>
+
+    <ng-template #viewMode>
+      <img [src]="product.imageLink" alt="{{ product.name }}" />
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.description }}</p>
+      <p><strong>{{ product.price }} $</strong></p>
+      <button (click)="enableEdit(product)">Edit ✏️</button>
+    </ng-template>
+  </div>
+</div>

@@ -24,6 +24,7 @@ import { ProductFeedbackComponent } from './modules/products/product-feedback/pr
 import { ProductSliderComponent } from './modules/products/product-slider/product-slider.component';
 import { NavbarComponent } from './modules/navbar/navbar.component';
 import { DataDisplayComponent } from './modules/data-display/data-display.component';
+import { ManageProductsComponent } from './modules/products/manage-products/manage-products.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { DataDisplayComponent } from './modules/data-display/data-display.compon
     ProductFeedbackComponent,
     ProductSliderComponent,
     NavbarComponent,
-    DataDisplayComponent
+    DataDisplayComponent,
+    ManageProductsComponent
   ],
   imports: [
     BrowserModule,
