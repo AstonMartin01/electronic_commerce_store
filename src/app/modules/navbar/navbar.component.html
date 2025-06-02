@@ -12,7 +12,11 @@
         <!-- <li><a routerLink="/cart" routerLinkActive="active">Cart</a></li> -->
         <!-- <li><a routerLink="/checkout" routerLinkActive="active">Checkout</a></li> -->
         <li><a routerLink="/" routerLinkActive="active">Account</a></li>
-        <li><a routerLink="/cart" routerLinkActive="active">Cart</a></li>
+        <li>
+          <a routerLink="/cart" routerLinkActive="active">
+            Cart<span class="cart-badge" *ngIf="cartItemCount > 0">({{ cartItemCount }})</span>
+          </a>
+        </li>
         <li><a routerLink="/" routerLinkActive="active">Delivery</a></li>
         <li><a routerLink="/" routerLinkActive="active">Tracking</a></li>
         <li><a routerLink="/" routerLinkActive="active">Discounts</a></li>
@@ -39,7 +43,11 @@
         <li><a routerLink="/cart" routerLinkActive="active" (click)="closeMenu()">Cart</a></li>
         <li><a routerLink="/checkout" routerLinkActive="active" (click)="closeMenu()">Checkout</a></li> -->
         <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Account</a></li>
-        <li><a routerLink="/cart" routerLinkActive="active" (click)="closeMenu()">Cart</a></li>
+        <li>
+          <a routerLink="/cart" routerLinkActive="active" (click)="closeMenu()">
+            Cart <span class="cart-badge" *ngIf="cartItemCount > 0">({{ cartItemCount }})</span>
+          </a>
+        </li>
         <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Delivery</a></li>
         <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Tracking</a></li>
         <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Discounts</a></li>

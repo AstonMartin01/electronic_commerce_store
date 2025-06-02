@@ -1,65 +1,65 @@
 .product-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
   
-  .product-details img {
-    width: 300px;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .product-details h2 {
-    font-size: 24px;
-    color: #333;
-  }
-  
-  .product-details p {
-    font-size: 18px;
-    color: #555;
-  }
-  
-  /* .add-to-cart-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-  } */
-  
-  .add-to-cart-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-  }
-  
-  .back-btn {
-    background: crimson;
-    padding: 10px;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 10px;
+.product-details img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.product-details h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.product-details p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* .add-to-cart-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+} */
+
+.add-to-cart-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.back-btn {
+  background: crimson;
+  padding: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
 }
 
 .add-to-cart-btn {
-    background: #007bff;
-    padding: 10px;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 10px;
-  }
+  background: #007bff;
+  padding: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+}
 
-  .details-actions {
-    display: flex;    
-    margin-top: 20px;
-    justify-content: space-between;
-  }
+.details-actions {
+  display: flex;    
+  margin-top: 20px;
+  justify-content: space-between;
+}
