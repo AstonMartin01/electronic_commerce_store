@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
+import { GlobalFeedback } from '../models/global-feedback.model';
+import { ProductFeedback } from '../models/product-feedback.model';
+import { Announcement } from '../models/announcement.model';
+import { Product } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,38 +13,57 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   getGlobalFeedbacks(): Observable<GlobalFeedback[]> {
-    const apiUrl = 'https://localhost:44352/ecommerce/global-feedbacks';
+    const apiUrl = "https://localhost:44352/ecommerce/global-feedbacks";
+    return this.http.get<GlobalFeedback[]>(apiUrl);
+  }
+
+  getGlobalFeedbacksMock(): Observable<GlobalFeedback[]> {    
+    const apiUrl = "assets/data/global-feedbacks.json";
     return this.http.get<GlobalFeedback[]>(apiUrl);
   }
 
   getProductFeedbacks(): Observable<ProductFeedback[]> {
-    const apiUrl = 'https://localhost:44352/ecommerce/product-feedbacks';
+    const apiUrl = "https://localhost:44352/ecommerce/product-feedbacks";
+    return this.http.get<ProductFeedback[]>(apiUrl);
+  }
+
+  getProductFeedbacksMock(): Observable<ProductFeedback[]> {
+    const apiUrl = "assets/data/product-feedbacks.json";
     return this.http.get<ProductFeedback[]>(apiUrl);
   }
 
   getAnnouncements(): Observable<Announcement[]> {
-    const apiUrl = 'https://localhost:44352/ecommerce/announcements';
+    const apiUrl = "https://localhost:44352/ecommerce/announcements";
     return this.http.get<Announcement[]>(apiUrl);
   }
 
-  getProducts(): Observable<any[]> {
-    // const apiUrl = './assets/mock-products.json';  // Mock data location
-    const apiUrl = 'https://localhost:44352/ecommerce/products';
-    return this.http.get<any[]>(apiUrl);
+  getAnnouncementsMock(): Observable<Announcement[]> {
+    const apiUrl = "assets/data/announcements.json";
+    return this.http.get<Announcement[]>(apiUrl);
+  }  
+
+  getProducts(): Observable<Product[]> {
+    const apiUrl = "https://localhost:44352/ecommerce/products";
+    return this.http.get<Product[]>(apiUrl);
+  }
+
+  getProductsMock(): Observable<Product[]> {
+    const apiUrl = "assets/data/products.json";
+    return this.http.get<Product[]>(apiUrl);
   }
 
   sendAnnouncement(announcement: Announcement): Observable<any> {
-    const apiUrl = 'https://localhost:44352/ecommerce/save-announcement';
+    const apiUrl = "https://localhost:44352/ecommerce/announcement";
     return this.http.post(apiUrl, announcement);
   }
 
-  sendGlobalFeedback(feedback: GlobalFeedback): Observable<any> {
-    const apiUrl = 'https://localhost:44352/ecommerce/save-global-feedback';
-    return this.http.post(apiUrl, feedback);
+  sendGlobalFeedback(feedback: GlobalFeedback): Observable<GlobalFeedback> {
+    const apiUrl = "https://localhost:44352/ecommerce/global-feedback";
+    return this.http.post<GlobalFeedback>(apiUrl, feedback);
   }
 
   sendProductFeedback(feedback: ProductFeedback): Observable<any> {
-    const apiUrl = 'https://localhost:44352/ecommerce/save-product-feedback';
+    const apiUrl = "https://localhost:44352/ecommerce/product-feedback";
     return this.http.post(apiUrl, feedback);
   }
 
@@ -50,26 +73,14 @@ export class DataService {
     );
   }
 
+  getProductMockById(id: number): Observable<any> {
+    return this.getProductsMock().pipe(
+      map((products: any[]) => products.find(product => product.id === id))
+    );
+  }  
+
   editProduct(product: any): Observable<any> {
-    const apiUrl = 'https://localhost:44352/ecommerce/edit-product';
+    const apiUrl = "https://localhost:44352/ecommerce/edit-product";
     return this.http.put(apiUrl, product);
   }
-}
-
-export interface GlobalFeedback {  
-  clientName: string;
-  message: string;
-}
-
-export interface ProductFeedback {  
-  clientName: string;
-  message: string;
-  rating: number;
-  dateOfEvent: string;
-}
-
-export interface Announcement {  
-  email: string;
-  musicGenre: string;
-  nameOfArtist: string;
 }

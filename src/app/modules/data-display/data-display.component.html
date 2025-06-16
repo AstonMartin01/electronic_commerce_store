@@ -1,17 +1,5 @@
 <div class="operations-container">
-  <div class="left-controls">
-    <div class="search-bar">
-      <input type="text" placeholder="Search products..." [(ngModel)]="searchQuery" (input)="onSearch()" />
-    </div>
-
-    <button (click)="sortProductsByName()" [class.active]="sortBy === 'name'">
-      Sort by Name <span *ngIf="sortOrderName === 'asc'">🔼</span><span *ngIf="sortOrderName === 'desc'">🔽</span>
-    </button>
-
-    <button (click)="sortProductsByPrice()" [class.active]="sortBy === 'price'">
-      Sort by Price <span *ngIf="sortOrderPrice === 'asc'">🔼</span><span *ngIf="sortOrderPrice === 'desc'">🔽</span>
-    </button>
-
+  <div class="left-controls data-display-container">
     <span>
       <label for="price">&nbsp; Filter by Price: </label>
       <input
@@ -25,5 +13,19 @@
       >
       <span>{{ selectedPrice }}$</span>
     </span>
+
+    <span class="data-display-container">
+      <button (click)="sortProductsByPrice()" [class.active]="sortBy === 'price'">
+        Sort by Price <span *ngIf="sortOrderPrice === 'asc'">🔼</span><span *ngIf="sortOrderPrice === 'desc'">🔽</span>
+      </button>
+
+      <button (click)="sortProductsByName()" [class.active]="sortBy === 'name'">
+        Sort by Name <span *ngIf="sortOrderName === 'asc'">🔼</span><span *ngIf="sortOrderName === 'desc'">🔽</span>
+      </button>
+    </span>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search products..." [(ngModel)]="searchQuery" (input)="onSearch()" />
+    </div>    
   </div>
 </div>

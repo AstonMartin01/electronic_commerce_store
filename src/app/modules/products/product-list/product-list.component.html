@@ -1,12 +1,16 @@
 <app-header></app-header>
 
-<app-product-slider></app-product-slider>
+<div class="product-slider-container">
+  <app-product-slider></app-product-slider>
+</div>
 
-<app-data-display 
-  (sort)="sortProducts($event)" 
-  (filter)="filterByPrice($event)"
-  (search)="searchProducts($event)">
-</app-data-display>
+<div class="data-display-container">
+  <app-data-display 
+    (sort)="sortProducts($event)" 
+    (filter)="filterByPrice($event)"
+    (search)="searchProducts($event)">
+  </app-data-display>
+</div>
 
 <!-- Pagination Controls -->
 <div class="pagination-container">

@@ -1,0 +1,20 @@
+[
+  {
+    "clientName": "John Doe",
+    "message": "Excellent product!",
+    "rating": 5,
+    "dateOfEvent": "2025-05-10"
+  },
+  {
+    "clientName": "Alex Johnson",
+    "message": "Average quality for the price.",
+    "rating": 3,
+    "dateOfEvent": "2025-05-12"
+  },
+  {
+    "clientName": "Jane Smith",
+    "message": "Very good, but delivery was slow.",
+    "rating": 4,
+    "dateOfEvent": "2025-05-11"
+  }
+]

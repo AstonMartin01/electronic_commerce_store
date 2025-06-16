@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { DataService, GlobalFeedback } from 'src/app/core/services/data.service';
+import { catchError } from 'rxjs';
+import { GlobalFeedback } from 'src/app/core/models/global-feedback.model';
+import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
   selector: 'app-global-feedbacks',
@@ -52,7 +54,12 @@ export class GlobalFeedbacksComponent implements OnInit{
   }
 
   getFeedbacks() {
-    this.dataService.getGlobalFeedbacks().subscribe({
+    this.dataService.getGlobalFeedbacks().pipe(
+      catchError(error => {
+        // console.error('Database fetch failed. Using mock data.', error);
+        return this.dataService.getGlobalFeedbacksMock();
+      })
+    ).subscribe({
     next: (data) => {
       this.feedbacks = data;
       this.isLoading = false;

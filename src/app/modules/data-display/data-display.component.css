@@ -179,15 +179,21 @@ button span {
   gap: 10px;
 }
 
+.search-bar {
+  max-width: 88%;
+}
+
 .search-bar input[type="text"] {
   padding: 0.7rem 0 0.7rem 1rem;
+  margin-left: -0.25rem;
+  margin-right: 1.75rem;
   font-size: 14px;
   border-radius: 5px;
   border: 1px solid #ccc;
   min-width: 200px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1068px) {
   .operations-container {
     flex-direction: column;
     align-items: flex-start;
@@ -200,4 +206,10 @@ button span {
   .search-bar input[type="text"] {
     width: 100%;
   }
+}
+
+.data-display-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

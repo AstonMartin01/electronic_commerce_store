@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { catchError } from 'rxjs';
 import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
@@ -15,10 +16,17 @@ export class ManageProductsComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.dataService.getProducts().subscribe(products => {
-      this.products = products;
-      this.filteredProducts = [...this.products];
-    });
+    this.dataService.getProducts()
+      .pipe(
+        catchError(error => {
+          // console.error('Database fetch failed. Using mock data.', error);
+          return this.dataService.getProductsMock();
+        })
+      )
+      .subscribe(products => {
+        this.products = products;
+        this.filteredProducts = [...this.products];
+      });
   }
 
   enableEdit(product: any) {

@@ -1,0 +1,27 @@
+[
+  {
+    "email": "testuser1@example.com",
+    "musicGenre": "House",
+    "nameOfArtist": "Artist A"
+  },
+  {
+    "email": "testuser2@example.com",
+    "musicGenre": "Techno",
+    "nameOfArtist": "Artist B"
+  },
+  {
+    "email": "testuser3@example.com",
+    "musicGenre": "Drum and Bass",
+    "nameOfArtist": "Artist C"
+  },
+  {
+    "email": "testuser4@example.com",
+    "musicGenre": "Trance",
+    "nameOfArtist": "Artist D"
+  },
+  {
+    "email": "testuser5@example.com",
+    "musicGenre": "Dubstep",
+    "nameOfArtist": "Artist E"
+  }
+]

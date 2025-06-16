@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../../core/services/cart.service';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/core/services/data.service';
+import { catchError } from 'rxjs';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -16,16 +17,23 @@ export class ProductListComponent implements OnInit {
   searchQuery: string = '';
 
   constructor(
-    private productService: DataService,
+    private dataService: DataService,
     private cartService: CartService,
     private router: Router
   ) {}
 
   ngOnInit() {
-    this.productService.getProducts().subscribe(data => {
-      this.products = data;
-      this.filteredProducts = [...this.products];
-    });
+    this.dataService.getProducts()
+      .pipe(
+        catchError(error => {
+          // console.error('Database fetch failed. Using mock data.', error);
+          return this.dataService.getProductsMock();
+        })
+      )
+      .subscribe(data => {
+        this.products = data;
+        this.filteredProducts = [...this.products];
+      });
 
     this.cartService.cart$.subscribe(cart => {
       this.cart = cart; // Syncs with the Shopping Cart service

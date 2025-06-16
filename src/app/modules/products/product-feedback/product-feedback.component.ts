@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { DataService, ProductFeedback } from 'src/app/core/services/data.service';
+import { catchError } from 'rxjs';
+import { ProductFeedback } from 'src/app/core/models/product-feedback.model';
+import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
   selector: 'app-product-feedback',
@@ -60,7 +62,12 @@ export class ProductFeedbackComponent {
   }
 
   getFeedbacks() {
-    this.dataService.getProductFeedbacks().subscribe({
+    this.dataService.getProductFeedbacks().pipe(
+      catchError(error => {
+        // console.error('Database fetch failed. Using mock data.', error);
+        return this.dataService.getProductFeedbacksMock();
+      })
+    ).subscribe({
     next: (data) => {
       this.feedbacks = data;
       this.isLoading = false;

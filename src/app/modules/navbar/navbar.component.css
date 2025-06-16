@@ -96,7 +96,7 @@ button span {
   margin: 0 1rem;
 }
 
-.nav-links a {
+.nav-links ul li a {
   color: white;
   text-decoration: none;
 }
@@ -119,14 +119,7 @@ button span {
   cursor: pointer;
   flex-direction: column;
   justify-content: space-between;
-  height: 24px;
-}
-
-.hamburger-menu .bar {
-  width: 30px;
-  height: 4px;
-  border-radius: 4px;
-  margin: 0.3rem;
+  height: 28px;
 }
 
 /* Mobile View */
@@ -141,8 +134,8 @@ button span {
 
   .nav-links.mobile {
     display: none;
-    position: absolute;
-    top: 60px;
+    position: relative;
+    top: -1rem;
     right: 0;
     background-color: #333;
     width: 100%;
@@ -160,6 +153,10 @@ button span {
 
   .nav-links.mobile li {
     margin: 1rem 0;
+  }
+
+  .bar {
+    margin-bottom: 1rem;
   }
 }
 

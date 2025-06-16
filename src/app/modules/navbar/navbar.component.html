@@ -31,12 +31,15 @@
     </nav>
 
     <!-- Mobile Hamburger Menu -->
-    <div class="hamburger-menu mobile" (click)="toggleMenu()">
-      <span class="bar">☰</span>
+    <div class="hamburger-menu mobile" *ngIf="!menuOpen" (click)="toggleMenu()">
+      <span>☰</span>
     </div>
 
     <!-- Mobile Navbar -->
     <nav class="nav-links mobile" [class.show]="menuOpen">
+      <div class="hamburger-menu mobile bar" (click)="toggleMenu()">
+        <span>☰</span>
+      </div>
       <ul>
         <!-- <li><a routerLink="/home" routerLinkActive="active" (click)="closeMenu()">Home</a></li>
         <li><a routerLink="/products" routerLinkActive="active" (click)="closeMenu()">Products</a></li>
