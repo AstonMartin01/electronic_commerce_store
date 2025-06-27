@@ -169,3 +169,8 @@
   align-items: center;
   width: 100%;
 }
+
+.product-description  {
+  min-height: 4.5rem;
+  overflow: auto;
+}
