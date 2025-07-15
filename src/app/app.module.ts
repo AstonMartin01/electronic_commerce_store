@@ -25,6 +25,7 @@ import { ProductSliderComponent } from './modules/products/product-slider/produc
 import { NavbarComponent } from './modules/navbar/navbar.component';
 import { DataDisplayComponent } from './modules/data-display/data-display.component';
 import { ManageProductsComponent } from './modules/products/manage-products/manage-products.component';
+import { SignUpComponent } from './modules/navbar/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ManageProductsComponent } from './modules/products/manage-products/mana
     ProductSliderComponent,
     NavbarComponent,
     DataDisplayComponent,
-    ManageProductsComponent
+    ManageProductsComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { GlobalFeedback } from '../models/global-feedback.model';
 import { ProductFeedback } from '../models/product-feedback.model';
@@ -82,5 +82,29 @@ export class DataService {
   editProduct(product: any): Observable<any> {
     const apiUrl = "https://localhost:44352/ecommerce/edit-product";
     return this.http.put(apiUrl, product);
+  }
+
+  registerUser(user: any): Observable<any> {
+    const apiUrl = "https://localhost:44352/ecommerce/account/register";
+    return this.http.post(apiUrl, user);
+  }
+
+  loginUser(user: any): Observable<any> {
+    const apiUrl = "https://localhost:44352/ecommerce/account/login";
+    return this.http.post(apiUrl, user);
+  }
+
+  getUser(token: any): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const apiUrl = "https://localhost:44352/ecommerce/account/user-info";
+    return this.http.get<any>(`${apiUrl}`, { headers });
+  }
+
+  setToken(token: any): void {
+    localStorage.setItem('token', token);
+  }
+
+  getToken(): any {
+    return localStorage.getItem('token');
   }
 }

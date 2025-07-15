@@ -1,0 +1,42 @@
+<app-header></app-header>
+<br><br><br>
+
+<div class="auth-toggle-container">
+  <button 
+    class="auth-toggle-button" 
+    [class.active]="selectedForm === 'login'" 
+    (click)="switchForm('login')">
+    Login
+  </button>
+  <button 
+    class="auth-toggle-button" 
+    [class.active]="selectedForm === 'register'" 
+    (click)="switchForm('register')">
+    Register
+  </button>
+</div>
+
+<div class="form-wrapper">
+  <form 
+    *ngIf="selectedForm === 'login'" 
+    @formAnimation 
+    (ngSubmit)="login()" 
+    #loginForm="ngForm" 
+    class="auth-form">
+    <input type="email" name="email" placeholder="Your Email" [(ngModel)]="loginEmail" required />
+    <input type="password" name="password" placeholder="Your Password" [(ngModel)]="loginPassword" required />
+    <button type="submit">Continue</button>
+  </form>
+
+  <form 
+    *ngIf="selectedForm === 'register'" 
+    @formAnimation 
+    (ngSubmit)="register()" 
+    #registerForm="ngForm" 
+    class="auth-form">
+    <input type="email" name="email" placeholder="Your Email" [(ngModel)]="registerEmail" required />
+    <input type="password" name="password" placeholder="Your Password" [(ngModel)]="registerPassword" required />
+    <button type="submit">Continue</button>
+  </form>
+</div>
+
