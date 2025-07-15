@@ -3,8 +3,6 @@
   max-width: 100%;
   margin: 2rem auto;
   overflow: hidden;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
   background-color: black;
 }
 
@@ -48,7 +46,7 @@
   right: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1068px) {
   .slide img {
     max-height: 15rem;
   }

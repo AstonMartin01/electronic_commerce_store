@@ -13,7 +13,7 @@ export class ProductListComponent implements OnInit {
   cart: any[] = [];
   filteredProducts: any[] = [];
   page: number = 1;
-  pageSize: number = 15;
+  pageSize: number = 18;
   searchQuery: string = '';
 
   constructor(

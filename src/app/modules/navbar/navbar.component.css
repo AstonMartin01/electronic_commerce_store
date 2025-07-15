@@ -4,6 +4,7 @@
   align-items: center;
   background-color: #f8f9fa;
   padding: 10px;
+  margin-left: -0.2rem;
 }
 
 .actions button {
@@ -60,13 +61,18 @@ button span {
 
 /* header.component.css */
 .navbar {
-  background-color: #333;
+  position: fixed;
+  width: 100%;
+  background-color: #000000;
   padding: 1rem;
   color: white;
   /* text-align: center;
   align-items: center;
   align-content: center; */
   justify-content: center;
+  z-index: 10;
+  /* border-bottom-left-radius: 1rem; */
+  /* border-bottom-right-radius: 1rem; */
 }
 
 .navbar-container {
@@ -120,10 +126,12 @@ button span {
   flex-direction: column;
   justify-content: space-between;
   height: 28px;
+  text-align: center;
+  margin-left: -1.5rem;
 }
 
 /* Mobile View */
-@media (max-width: 1360px) {
+@media (max-width: 1068px) {
   .desktop {
     display: none;
   }
@@ -132,15 +140,20 @@ button span {
     display: block;
   }
 
+  .navbar {
+    /* position: relative; */
+  }
+
   .nav-links.mobile {
     display: none;
     position: relative;
     top: -1rem;
     right: 0;
-    background-color: #333;
+    background-color: #000000;
     width: 100%;
     text-align: center;
     margin-top: 1rem;
+    margin-left: -1.5rem;
   }
 
   .nav-links.mobile.show {
@@ -157,6 +170,7 @@ button span {
 
   .bar {
     margin-bottom: 1rem;
+    margin-left: 20px;
   }
 }
 

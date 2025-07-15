@@ -14,17 +14,17 @@
         <li><a routerLink="{{navbarRouterLink}}" routerLinkActive="active">{{navbarButton}}</a></li>
         <li>
           <a routerLink="/cart" routerLinkActive="active">
-            Cart<span class="cart-badge" *ngIf="cartItemCount > 0">({{ cartItemCount }})</span>
+            Cart <span class="cart-badge" *ngIf="cartItemCount > 0">({{ cartItemCount }})</span>
           </a>
         </li>
-        <li><a routerLink="/" routerLinkActive="active">Delivery</a></li>
-        <li><a routerLink="/" routerLinkActive="active">Tracking</a></li>
+        <!-- <li><a routerLink="/" routerLinkActive="active">Delivery</a></li>
+        <li><a routerLink="/" routerLinkActive="active">Tracking</a></li> -->
         <li><a routerLink="/" routerLinkActive="active">Discounts</a></li>
         <li><a routerLink="/" routerLinkActive="active">Unsealed</a></li>
         <li><a routerLink="/" routerLinkActive="active">Return</a></li>
         <li><a routerLink="/" routerLinkActive="active">Service</a></li>
         <!-- <li><a routerLink="/" routerLinkActive="active">Blog</a></li> -->
-        <li><a routerLink="/" routerLinkActive="active">FAQ</a></li>
+        <!-- <li><a routerLink="/" routerLinkActive="active">FAQ</a></li> -->
         <li><a routerLink="/" routerLinkActive="active">Support</a></li>
         <li><a routerLink="/" routerLinkActive="active">Contact</a></li>
       </ul>
@@ -45,20 +45,20 @@
         <li><a routerLink="/products" routerLinkActive="active" (click)="closeMenu()">Products</a></li>
         <li><a routerLink="/cart" routerLinkActive="active" (click)="closeMenu()">Cart</a></li>
         <li><a routerLink="/checkout" routerLinkActive="active" (click)="closeMenu()">Checkout</a></li> -->
-        <li><a routerLink="{{navbarRouterLink}}" routerLinkActive="active" (click)="closeMenu()">{{navbarButton}}</a></li>
+        <li><a routerLink="{{navbarRouterLink}}" routerLinkActive="active" (click)="closeMenu()">&nbsp; {{navbarButton}}</a></li>
         <li>
           <a routerLink="/cart" routerLinkActive="active" (click)="closeMenu()">
-            Cart <span class="cart-badge" *ngIf="cartItemCount > 0">({{ cartItemCount }})</span>
+            &nbsp; Cart <span class="cart-badge" *ngIf="cartItemCount > 0">({{ cartItemCount }})</span>
           </a>
         </li>
         <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Delivery</a></li>
         <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Tracking</a></li>
         <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Discounts</a></li>
         <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Unsealed</a></li>
-        <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Return</a></li>
-        <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Service</a></li>
+        <!-- <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Return</a></li>
+        <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Service</a></li> -->
         <!-- <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Blog</a></li> -->
-        <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">FAQ</a></li>
+        <!-- <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">FAQ</a></li> -->
         <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Support</a></li>
         <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Contact</a></li>
       </ul>

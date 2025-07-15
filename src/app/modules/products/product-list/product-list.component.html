@@ -1,61 +1,67 @@
-<app-header></app-header>
-
-<div class="product-slider-container">
-  <app-product-slider></app-product-slider>
-</div>
-
-<div class="data-display-container">
-  <app-data-display 
-    (sort)="sortProducts($event)" 
-    (filter)="filterByPrice($event)"
-    (search)="searchProducts($event)">
-  </app-data-display>
-</div>
-
-<!-- Pagination Controls -->
-<div class="pagination-container">
-  <pagination-controls (pageChange)="page = $event" previousLabel="" nextLabel=""></pagination-controls>
-</div>
-
-<div class="product-container">
-  <div class="product-list">
-    <div *ngFor="let product of filteredProducts | paginate: { itemsPerPage: pageSize, currentPage: page }" class="product-card">
-      <a [routerLink]="['/product', product.id]">
-        <img [src]="product.imageLink" alt="{{ product.name }}" />
-      </a>
-      <h3 class="product-name">
-        {{ product.name }}
-      </h3>    
-      <p class="product-description">{{ product.description }}</p>
-      <p><strong>{{ product.price }}$</strong></p>
-      <button class="product-button" (click)="addToCart(product)">Add to Cart 🛒</button> 
-    </div>
+<div class="main-container">
+  <div class="header-container">
+    <app-header></app-header>
   </div>
-  
-  <!-- <div class="cart-sidebar">
-    <button class="cart-view-btn" (click)="goToCart()">Shopping Cart 🛒</button>
-    <ul *ngIf="cart.length > 0; else emptyCart">
-      <li *ngFor="let item of cart; let i = index">
-        {{ item.name }} 
-        <br>
-        {{ item.price }}$
-        <button class="remove-btn" (click)="removeFromCart(i)">✖</button>
-      </li>
-    </ul>
 
-    <ng-template #emptyCart>
-      <p class="empty-cart-message">Your cart is empty.</p>
-    </ng-template>
-  </div> -->
+  <br>
+
+  <div class="product-slider-container">
+    <app-product-slider></app-product-slider>
+  </div>
+
+  <div class="data-display-container">
+    <app-data-display 
+      (sort)="sortProducts($event)" 
+      (filter)="filterByPrice($event)"
+      (search)="searchProducts($event)">
+    </app-data-display>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pagination-container">
+    <pagination-controls (pageChange)="page = $event" previousLabel="" nextLabel=""></pagination-controls>
+  </div>
+
+  <div class="product-container">
+    <div class="product-list">
+      <div *ngFor="let product of filteredProducts | paginate: { itemsPerPage: pageSize, currentPage: page }" class="product-card">
+        <a [routerLink]="['/product', product.id]">
+          <img [src]="product.imageLink" alt="{{ product.name }}" />
+        </a>
+        <h3 class="product-name">
+          {{ product.name }}
+        </h3>    
+        <p class="product-description">{{ product.description }}</p>
+        <p><strong>{{ product.price }}$</strong></p>
+        <button class="product-button" (click)="addToCart(product)">Add to Cart 🛒</button> 
+      </div>
+    </div>
+    
+    <!-- <div class="cart-sidebar">
+      <button class="cart-view-btn" (click)="goToCart()">Shopping Cart 🛒</button>
+      <ul *ngIf="cart.length > 0; else emptyCart">
+        <li *ngFor="let item of cart; let i = index">
+          {{ item.name }} 
+          <br>
+          {{ item.price }}$
+          <button class="remove-btn" (click)="removeFromCart(i)">✖</button>
+        </li>
+      </ul>
+
+      <ng-template #emptyCart>
+        <p class="empty-cart-message">Your cart is empty.</p>
+      </ng-template>
+    </div> -->
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pagination-container">
+    <pagination-controls (pageChange)="page = $event" previousLabel="" nextLabel=""></pagination-controls>
+  </div>
+
+  <app-newsletter class="newsletter"></app-newsletter>
+  <app-global-feedbacks class="global-feedbacks"></app-global-feedbacks>
+  <app-delivery></app-delivery>
+  <app-faq></app-faq>
+  <app-footer></app-footer>
 </div>
-
-<!-- Pagination Controls -->
-<div class="pagination-container">
-  <pagination-controls (pageChange)="page = $event" previousLabel="" nextLabel=""></pagination-controls>
-</div>
-
-<app-newsletter class="newsletter"></app-newsletter>
-<app-global-feedbacks class="global-feedbacks"></app-global-feedbacks>
-<app-delivery></app-delivery>
-<app-faq></app-faq>
-<app-footer></app-footer>
