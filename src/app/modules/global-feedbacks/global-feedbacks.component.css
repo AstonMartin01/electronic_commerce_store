@@ -65,4 +65,8 @@ button {
   button {
     font-size: 1rem;
   }
+
+  .feedback-item {
+    font-size: 0.8rem;
+  }
 }

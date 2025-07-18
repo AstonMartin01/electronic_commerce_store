@@ -61,6 +61,7 @@ button span {
 
 /* header.component.css */
 .navbar {
+  margin-top: 0.4rem;
   position: fixed;
   width: 100%;
   background-color: #000000;
