@@ -13,6 +13,7 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   getGlobalFeedbacks(): Observable<GlobalFeedback[]> {
+    // const apiUrl = "https://sto.prototype-projects.eu/ecommerce/global-feedbacks";
     const apiUrl = "https://localhost:44352/ecommerce/global-feedbacks";
     return this.http.get<GlobalFeedback[]>(apiUrl);
   }
@@ -23,6 +24,7 @@ export class DataService {
   }
 
   getProductFeedbacks(): Observable<ProductFeedback[]> {
+    // const apiUrl = "https://sto.prototype-projects.eu/ecommerce/product-feedbacks";
     const apiUrl = "https://localhost:44352/ecommerce/product-feedbacks";
     return this.http.get<ProductFeedback[]>(apiUrl);
   }
@@ -33,6 +35,7 @@ export class DataService {
   }
 
   getAnnouncements(): Observable<Announcement[]> {
+    // const apiUrl = "https://sto.prototype-projects.eu/ecommerce/announcements";
     const apiUrl = "https://localhost:44352/ecommerce/announcements";
     return this.http.get<Announcement[]>(apiUrl);
   }
@@ -43,6 +46,7 @@ export class DataService {
   }  
 
   getProducts(): Observable<Product[]> {
+    // const apiUrl = "https://sto.prototype-projects.eu/ecommerce/products";
     const apiUrl = "https://localhost:44352/ecommerce/products";
     return this.http.get<Product[]>(apiUrl);
   }
@@ -53,16 +57,19 @@ export class DataService {
   }
 
   sendAnnouncement(announcement: Announcement): Observable<any> {
+    // const apiUrl = "https://sto.prototype-projects.eu/ecommerce/announcement";
     const apiUrl = "https://localhost:44352/ecommerce/announcement";
     return this.http.post(apiUrl, announcement);
   }
 
   sendGlobalFeedback(feedback: GlobalFeedback): Observable<GlobalFeedback> {
+    // const apiUrl = "https://sto.prototype-projects.eu/ecommerce/global-feedback";
     const apiUrl = "https://localhost:44352/ecommerce/global-feedback";
     return this.http.post<GlobalFeedback>(apiUrl, feedback);
   }
 
   sendProductFeedback(feedback: ProductFeedback): Observable<any> {
+    // const apiUrl = "https://sto.prototype-projects.eu/ecommerce/product-feedback";
     const apiUrl = "https://localhost:44352/ecommerce/product-feedback";
     return this.http.post(apiUrl, feedback);
   }
@@ -80,31 +87,35 @@ export class DataService {
   }  
 
   editProduct(product: any): Observable<any> {
+    // const apiUrl = "https://sto.prototype-projects.eu/ecommerce/edit-product";
     const apiUrl = "https://localhost:44352/ecommerce/edit-product";
     return this.http.put(apiUrl, product);
   }
 
   registerUser(user: any): Observable<any> {
+    // const apiUrl = "https://sto.prototype-projects.eu/ecommerce/account/register";
     const apiUrl = "https://localhost:44352/ecommerce/account/register";
     return this.http.post(apiUrl, user);
   }
 
   loginUser(user: any): Observable<any> {
+    // const apiUrl = "https://sto.prototype-projects.eu/ecommerce/account/login";
     const apiUrl = "https://localhost:44352/ecommerce/account/login";
     return this.http.post(apiUrl, user);
   }
 
   getUser(token: any): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    // const apiUrl = "https://sto.prototype-projects.eu/ecommerce/account/user-info";
     const apiUrl = "https://localhost:44352/ecommerce/account/user-info";
     return this.http.get<any>(`${apiUrl}`, { headers });
   }
 
   setToken(token: any): void {
-    localStorage.setItem('token', token);
+    sessionStorage.setItem('token', token);
   }
 
   getToken(): any {
-    return localStorage.getItem('token');
+    return sessionStorage.getItem('token');
   }
 }
