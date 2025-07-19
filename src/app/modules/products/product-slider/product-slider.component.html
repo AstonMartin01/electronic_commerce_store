@@ -1,7 +1,16 @@
 <div class="slider-container">
-  <div class="slide" *ngFor="let img of images; let i = index" [class.active]="i === currentSlide">    
-    <img [src]="img" alt="Slideshow Image">      
+  <div class="slide" *ngFor="let img of images; let i = index" [class.active]="i === currentSlide">
+    <img [src]="img" alt="Slideshow Image">
     <button class="prev" (click)="prevSlide()">❮</button>
     <button class="next" (click)="nextSlide()">❯</button>
+  </div>
+
+  <div class="dots">
+    <span
+      *ngFor="let img of images; let i = index"
+      class="dot"
+      [class.active]="i === currentSlide"
+      (click)="goToSlide(i)"
+    ></span>
   </div>
 </div>

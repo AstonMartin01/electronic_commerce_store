@@ -1,6 +1,6 @@
 <div class="operations-container">
   <div class="left-controls data-display-container">
-    <span>
+    <div class="filter-section">
       <label for="price">&nbsp; Filter by Price: </label>
       <input
         id="price"
@@ -10,22 +10,34 @@
         step="50"
         [(ngModel)]="selectedPrice"
         (input)="filterByPrice($event)"
-      >
+      />
       <span>{{ selectedPrice }}$</span>
-    </span>
+    </div>
 
-    <span class="data-display-container">
+    <div class="sort-section">
       <button (click)="sortProductsByPrice()" [class.active]="sortBy === 'price'">
-        Sort by Price <span *ngIf="sortOrderPrice === 'asc'">🔼</span><span *ngIf="sortOrderPrice === 'desc'">🔽</span>
+        Sort by Price 
+        <span *ngIf="sortOrderPrice === 'asc'">
+          <img class="arrow-up" src="/assets/arrow-up.png" alt="">
+        </span>
+        <span *ngIf="sortOrderPrice === 'desc'">
+          <img class="arrow-down" src="/assets/arrow-down.png" alt="">
+        </span>
       </button>
 
       <button (click)="sortProductsByName()" [class.active]="sortBy === 'name'">
-        Sort by Name <span *ngIf="sortOrderName === 'asc'">🔼</span><span *ngIf="sortOrderName === 'desc'">🔽</span>
+        Sort by Name 
+        <span *ngIf="sortOrderName === 'asc'">
+          <img class="arrow-up" src="/assets/arrow-up.png" alt="">
+        </span>
+        <span *ngIf="sortOrderName === 'desc'">
+          <img class="arrow-down" src="/assets/arrow-down.png" alt="">
+        </span>
       </button>
-    </span>
+    </div>
 
-    <div class="search-bar">
+    <div class="search-section search-bar">
       <input type="text" placeholder="Search products..." [(ngModel)]="searchQuery" (input)="onSearch()" />
-    </div>    
+    </div>
   </div>
 </div>

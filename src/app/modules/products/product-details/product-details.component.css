@@ -1,3 +1,7 @@
+.header-container {
+  margin-top: -0.5rem;
+}
+
 .product-details {
   display: flex;
   flex-direction: column;

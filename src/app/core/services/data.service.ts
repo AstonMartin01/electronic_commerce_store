@@ -112,10 +112,10 @@ export class DataService {
   }
 
   setToken(token: any): void {
-    sessionStorage.setItem('token', token);
+    localStorage.setItem('token', token);
   }
 
   getToken(): any {
-    return sessionStorage.getItem('token');
+    return localStorage.getItem('token');
   }
 }
