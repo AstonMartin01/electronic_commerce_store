@@ -132,7 +132,7 @@ button span {
 }
 
 /* Mobile View */
-@media (max-width: 1068px) {
+@media (max-width: 1078px) {
   .desktop {
     display: none;
   }

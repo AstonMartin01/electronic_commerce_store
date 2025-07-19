@@ -4,7 +4,11 @@
     <div class="accordion-item" *ngFor="let faq of faqs; let i = index">
       <button class="accordion-button" (click)="toggle(i)">
         {{ faq.question }}
-        <span class="icon">{{ faq.open ? '🔽' : '🔼' }}</span>
+        <img
+          class="icon"
+          [src]="faq.open ? 'assets/down-arrow.svg' : 'assets/up-arrow.svg'"
+          alt="Toggle Arrow"
+        />
       </button>
       <div class="accordion-body" [class.open]="faq.open">
         <p>{{ faq.answer }}</p>

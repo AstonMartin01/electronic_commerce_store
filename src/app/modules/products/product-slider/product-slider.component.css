@@ -68,7 +68,7 @@
   background-color: white;
 }
 
-@media (max-width: 1068px) {
+@media (max-width: 1078px) {
   .slide img {
     max-height: 15rem;
   }

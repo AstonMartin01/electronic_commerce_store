@@ -21,7 +21,7 @@
   object-fit: cover;
 }
 
-@media screen and (max-width: 1068px) {
+@media screen and (max-width: 1078px) {
   .image-grid {
     grid-template-columns: repeat(2, 1fr);
   }

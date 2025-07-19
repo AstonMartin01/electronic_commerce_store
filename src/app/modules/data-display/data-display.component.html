@@ -1,19 +1,5 @@
 <div class="operations-container">
   <div class="left-controls data-display-container">
-    <div class="filter-section">
-      <label for="price">&nbsp; Filter by Price: </label>
-      <input
-        id="price"
-        type="range"
-        min="100"
-        max="10000"
-        step="50"
-        [(ngModel)]="selectedPrice"
-        (input)="filterByPrice($event)"
-      />
-      <span>{{ selectedPrice }}$</span>
-    </div>
-
     <div class="sort-section">
       <button (click)="sortProductsByPrice()" [class.active]="sortBy === 'price'">
         Sort by Price 
@@ -36,6 +22,21 @@
       </button>
     </div>
 
+    <div class="filter-section">
+      <label for="price">&nbsp; Filter by Price: </label>
+      <div>
+        <input
+          id="price"
+          type="range"
+          min="100"
+          max="10000"
+          step="50"
+          [(ngModel)]="selectedPrice"
+          (input)="filterByPrice($event)"
+        />
+        <span>{{ selectedPrice }}$</span>
+      </div>
+    </div>
     <div class="search-section search-bar">
       <input type="text" placeholder="Search products..." [(ngModel)]="searchQuery" (input)="onSearch()" />
     </div>

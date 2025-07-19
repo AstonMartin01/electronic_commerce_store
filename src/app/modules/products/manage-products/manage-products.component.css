@@ -27,9 +27,9 @@
 }
 
 .product-card img {
-    width: 100%;
-    height: auto;    
-    object-fit: contain;
+  width: 100%;
+  height: auto;    
+  object-fit: contain;
 }
 
 .product-card h3 {
@@ -65,7 +65,7 @@ button {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1078px) {
   .product-list {
     grid-template-columns: repeat(2, 1fr);
   }

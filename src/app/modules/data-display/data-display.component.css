@@ -102,7 +102,7 @@
   box-sizing: border-box;
 }
 
-@media (max-width: 1410px) {
+@media (max-width: 1078px) {
   .left-controls {
     display: flex;
     flex-direction: column;
@@ -170,4 +170,3 @@
     width: 100%;
   }
 }
-
