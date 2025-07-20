@@ -9,6 +9,8 @@
     <button type="submit">Submit</button>
   </form> 
 
+  <br>
+  
   <div class="feedback-list" id="feedback-list">
     <div *ngFor="let feedback of feedbacks" class="feedback-item">
       {{ feedback.clientName }} - "{{ feedback.message }} ({{ feedback.rating }}★)" - {{ feedback.dateOfEvent | date:'dd.MM.yyyy' }}

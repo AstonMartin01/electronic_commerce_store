@@ -46,6 +46,10 @@
   right: 1rem;
 }
 
+  .prev:hover, .next:hover {
+    color: #007bff;
+  }  
+
 .dots {
   text-align: center;
   position: absolute;
@@ -57,15 +61,17 @@
   height: 12px;
   width: 12px;
   margin: 0 5px;
-  background-color: #bbb;
+  background-color: white;
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  border: 2px solid black;
 }
 
 .dot.active {
-  background-color: white;
+  background-color: #007bff;
+  border: 2px solid black;
 }
 
 @media (max-width: 1078px) {

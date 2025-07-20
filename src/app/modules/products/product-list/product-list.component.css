@@ -70,7 +70,7 @@
 }
   
 .product-button {
-  background-color: #0056b3;
+  background-color: #007BFF;
   border: none;
   padding: 10px;
   color: white;
@@ -79,7 +79,7 @@
 }
   
 .product-button:hover {
-  background-color: #004494;
+  background-color: #0056b3;
 }
   
 .cart {

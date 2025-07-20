@@ -23,7 +23,7 @@ input, textarea {
   padding: 0.75rem;
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   resize: none;
 }
 
@@ -51,6 +51,26 @@ button {
 
 .feedback-font {
   font-style: italic;
+}
+
+.global-feedbacks-form button:hover {
+  background-color: #0056b3;
+}
+
+.global-feedbacks-form input[type="text"],
+.global-feedbacks-form textarea {
+  border: 2px solid #ccc;
+  border-color: #ccc;
+  outline: none;
+}
+
+.global-feedbacks-form input[type="text"]:hover,
+.global-feedbacks-form input[type="text"]:focus,
+.global-feedbacks-form textarea:hover,
+.global-feedbacks-form textarea:focus {
+  border: 2px solid #007bff;
+  border-color: #007bff;
+  outline: none;
 }
 
 @media (max-width: 600px) {
